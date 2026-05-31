@@ -7,6 +7,7 @@ import {
   FaYoutube,
   FaExchangeAlt,
   FaExternalLinkAlt,
+  FaTelegram
 } from "react-icons/fa";
 import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
 import { CgWebsite } from "react-icons/cg";
@@ -70,6 +71,7 @@ const Preview = () => {
     { name: "instagram", icon: <FaInstagram /> },
     { name: "youtube", icon: <FaYoutube /> },
     { name: "website", icon: <CgWebsite /> },
+    { name: "telegram", icon: <FaTelegram className="text-sky-500" /> },
   ];
 
   const onDragEnd = (result) => {
