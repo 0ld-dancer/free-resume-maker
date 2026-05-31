@@ -22,33 +22,36 @@ export default async function handler(req, res) {
     return res.status(200).json({ suggestions });
   } catch (error) {
     console.error('API Error:', error);
-    
+
+    // Guard clause to pull the message string safely
+    const errMsg = error?.message || '';
+
     // Handle specific error types
-    if (error.message.startsWith('CONTENT_ERROR:')) {
+    if (errMsg.startsWith('CONTENT_ERROR:')) {
       return res.status(400).json({
         error: 'CONTENT_ERROR',
-        message: error.message.replace('CONTENT_ERROR: ', '')
-      });
-    }
-    
-    if (error.message.startsWith('QUOTA_ERROR:')) {
-      return res.status(429).json({
-        error: 'QUOTA_ERROR',
-        message: error.message.replace('QUOTA_ERROR: ', '')
-      });
-    }
-    
-    if (error.message.startsWith('API_ERROR:')) {
-      return res.status(500).json({
-        error: 'API_ERROR',
-        message: error.message.replace('API_ERROR: ', '')
+        message: errMsg.replace('CONTENT_ERROR: ', '')
       });
     }
 
-    if (error.message.startsWith('RATE_ERROR:')) {
+    if (errMsg.startsWith('QUOTA_ERROR:')) {
+      return res.status(429).json({
+        error: 'QUOTA_ERROR',
+        message: errMsg.replace('QUOTA_ERROR: ', '')
+      });
+    }
+
+    if (errMsg.startsWith('API_ERROR:')) {
+      return res.status(500).json({
+        error: 'API_ERROR',
+        message: errMsg.replace('API_ERROR: ', '')
+      });
+    }
+
+    if (errMsg.startsWith('RATE_ERROR:')) {
       return res.status(429).json({
         error: 'RATE_ERROR',
-        message: error.message.replace('RATE_ERROR: ', '')
+        message: errMsg.replace('RATE_ERROR: ', '')
       });
     }
 
