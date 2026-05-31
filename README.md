@@ -2,11 +2,6 @@
 
 ### A modern, AI-powered, ATS-optimized resume builder featuring professionally designed templates and smart content suggestions.
 
-## GitAds Sponsored
-[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=hothead01th/free-resume-maker@github)](https://gitads.dev/v1/ad-track?source=hothead01th/free-resume-maker@github)
-
-
-
 <p align="center">
   <img src="preview.png" width="45%" />
   <img src="preview2.png" width="45%" />
@@ -48,12 +43,12 @@ git clone https://github.com/HOTHEAD01TH/free-resume-maker.git
 cd free-resume-maker
 ```
 
-3. Install dependencies:
+3. Install dependencies ([Node.js for Windows](https://nodejs.org/en/download)):
 ```bash
 npm install
 ```
 
-4. Set up environment variables:
+4. Set up environment variables (.env.example => .env):
 ```bash
 GEMINI_API_KEY=your_api_key_here
 ```
